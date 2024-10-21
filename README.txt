@@ -56,9 +56,9 @@ Dentro de las necesidades del proyecto, se plantea el uso de 2 archivos que debe
 integro, los cuales son los siguientes:
 
 -data.py : datos requeridos y formatos de estos.
--main.py : archivo con dos clases: 
-				~UrbanRoutesPages: donde se denotarán los localizadores y métodos.
-				~TestUrbanRoutes: pruebas automatizadas.
+-main.py : archivo con la clase TestUrbanRoutes con las pruebas automatizadas.
+-UrbanRoutesPage : donde se denotarán los localizadores y métodos.
+-helpers.py: clase de funciones de apoyo (recuperación de código para confirmar el celular).
 -README.md : descripción del proyecto en general.
 
 A través del método POM realizaremos pruebas automatizadas con la ayuda de la localización de elementos para probar la
