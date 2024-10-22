@@ -11,6 +11,7 @@ class UrbanRoutesPage:
     taxi_button = (By.CLASS_NAME, "button round")
 #Se sustituyó la ruta de XPATH que podía quedar obsoleta y se identificó el elemento a través de ID o CLASS
     comfort_button = (By.ID, 'tariff-card-4')
+    close_phone_section = (By.CLASS_NAME, "close-button section-close")
     phone_number_button = (By.CLASS_NAME, "np-text")
     phone_input = (By.ID, "phone")
 #Se sustituyó la ruta de XPATH que podía quedar obsoleta y se identificó el elemento a través de ID o CLASS
@@ -28,6 +29,7 @@ class UrbanRoutesPage:
     blanket_and_scarves = (By.CLASS_NAME, "r-sw-label")
     ice_cream_counter = (By.CLASS_NAME, "r-counter")
     taxi_search_button = (By.CLASS_NAME, "smart-button-main")
+    taxi_search_section = (By.CLASS_NAME, "order-header-title")
 
     def __init__(self, driver):
         self.driver = driver
@@ -61,6 +63,9 @@ class UrbanRoutesPage:
     def fill_phone_number(self):
         self.driver.find_element(*self.phone_input).send_keys(data.phone_number)
 
+    def set_phone_code(self):
+        self.driver.find_element(*self.input_phone_code).click()
+
     def send_phone_number(self):
         self.driver.find_element(*self.phone_send).click()
 
@@ -76,12 +81,18 @@ class UrbanRoutesPage:
     def add_number(self):
         self.driver.find_element(*self.add_card_number).send_keys(data.card_number, data.card_code)
 
+    def write_message(self):
+        self.driver.find_element(*self.driver_message).send_keys(data.message_for_driver)
+
 #Se han generado las funciones restantes de aquí en adelante para poder llamarlas dentro de main.py en las funciones de pruebas.
-    def additional_request(self):
+    def additional_request_blanket(self):
         self.driver.find_element(*self.blanket_and_scarves).click()
 
-    def ice_cream(self):
+    def request_ice_cream(self):
         self.driver.find_element(*self.ice_cream_counter).click(2)
+
+    def is_displayed(self):
+        pass
 
     def taxi_search(self):
         self.driver.find_element(*self.taxi_search_button).click()
